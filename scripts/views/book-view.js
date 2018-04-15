@@ -1,19 +1,3 @@
-'use strict';
-
-// use app = app || {};
-// (function(module){
-//   const bookView = {}
-
-// })(app)
-
-
-// let template = Handlebars.compile($('#book-template').text());
-
-// allBooks().forEach(stat => $('.book-data').append(template(stat)));
-
-// var fetchAll = () => {
-//   $.get(/)
-// };
 
 
 var app = app || {};
@@ -22,10 +6,16 @@ var app = app || {};
   const bookView = {};
 
   bookView.initIndexPage = () => {
-    app.Book.all.map(book => $('#book-data').append(book.toHtml()));
-  };
+    $('.container').hide();
+    $('.book-view').show();
+    console.log('init index page');
+    app.Book.all.map(task => $('#book-list').append(task.toHtml()));
+  }
 
-  module.bookView = bookView;
-
+module.bookView = bookView;
 
 })(app);
+
+$(function () {
+  app.Book.fetchAll(app.bookView.initIndexPage);
+});

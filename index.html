@@ -14,11 +14,19 @@
       <p>Description: {{description}}</p>
     </li>
   </script>
+
+  <script type="text/x-handlebars-template" id="error-template">
+    <p>{{status}}: {{statusText}}</p>
+  </script>
 </head>
 <body>
   <h1>'Hello Stress!'</h1>
-  <section>
-    <ul id="book-data">
+  <section class="error-view container">
+      <h2>Something Broke</h2>
+      <section id="error-message"></section>
+  </section>
+  <section class ="book-view container">
+    <ul id="book-list">
     </ul>
     <div>
       <p>Number of books: <span id="book-count"></span></p>
@@ -32,6 +40,5 @@
   <script src="./scripts/models/book.js" type="text/javascript"></script>
   <script src="./scripts/views/book-view.js" type="text/javascript"></script>
   <script src="./scripts/views/error-view.js" type="text/javascript"></script>
-  <script>app.Book.fetchAll(app.bookView.initIndexPage)</script>
 </body>
 </html>
