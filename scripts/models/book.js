@@ -3,8 +3,8 @@ const ENV = {};
 
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'https://kh-booklist.herokuapp.com/';
-ENV.developmentApiUrl = 'http://localhost:3000/';
+ENV.productionApiUrl = 'https://kh-booklist.herokuapp.com';
+ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 (function(module) {
@@ -29,7 +29,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   };
 
   Book.fetchAll = callback =>
-    $.get(`${ENV.apiUrl}books`)
+    $.get(`${ENV.apiUrl}/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
