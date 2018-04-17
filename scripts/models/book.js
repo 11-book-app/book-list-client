@@ -28,11 +28,17 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
   };
 
-  Book.fetchAll = callback =>
-    $.get(`${ENV.apiUrl}/books`)
+  Book.numBooks = () => {
+    return Book.all.length;
+  };
+
+  Book.fetchAll = callback => {
+    $.get(`${ENV.apiUrl}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
+  }
+
 
   module.Book = Book;
 
