@@ -9,8 +9,10 @@ var app = app || {};
     $('.container').hide();
     $('.book-view').show();
     console.log('init index page');
-    app.Book.all.map(task => $('#book-list').append(task.toHtml()));
+    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+   $('#book-count').text(app.Book.numBooks);
   }
+
 
 module.bookView = bookView;
 
